@@ -55,11 +55,54 @@ public class MaxSatisfied {
         return ans;
     }
 
+    //思路一优化：事实上，只需要在第一个滑动窗口时遍历计算一次结果。然后之后滑动窗接口的时候，每次计算滑出窗口外和进入窗口内的差，即可计算出本个窗口下的结果，避免了每次滑动重新计算
+    public int maxSatisfied1(int[] customers, int[] grumpy, int X) {
+        int ans = 0;
+        if (customers.length != grumpy.length) {
+            return -1;
+        }
+        //营业时长
+        int len = customers.length;
+        //滑动窗口左边界
+        int leftCur = 0;
+        //滑动窗口右边界
+        int rightCur = leftCur + X - 1;
+        //一直保持不生气即可
+        if (X > len) {
+            rightCur = len - 1;
+        }
+        int latestSum = 0;
+        for (int i = 0; i < len; i++) {
+            if (i >= leftCur && i <= rightCur) {
+                latestSum += customers[i];
+            } else {
+                latestSum += customers[i] * (1 - grumpy[i]);
+            }
+        }
+        leftCur++;
+        rightCur++;
+        ans = latestSum;
+        while (rightCur < len) {
+            //减去滑出窗口部分的顾客满意数（只有原本老板生气才需要减）
+            if (grumpy[leftCur - 1] == 1) {
+                latestSum -= customers[leftCur - 1];
+            }
+            //加上滑入窗口部分的顾客满意数（只有原本老板生气才需要加）
+            if (grumpy[rightCur] == 1) {
+                latestSum += customers[rightCur];
+            }
+            ans = latestSum > ans ? latestSum : ans;
+            leftCur++;
+            rightCur++;
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
         MaxSatisfied maxSatisfied = new MaxSatisfied();
-        int[] customers = new int[]{1, 0, 1, 2, 1, 1, 7, 5};
-        int[] grumpy = new int[]{0, 1, 0, 1, 0, 1, 0, 1};
-        int X = 3;
-        System.out.println(maxSatisfied.maxSatisfied(customers, grumpy, X));
+        int[] customers = new int[]{5, 8};
+        int[] grumpy = new int[]{0, 1};
+        int X = 1;
+        System.out.println(maxSatisfied.maxSatisfied1(customers, grumpy, X));
     }
 }
