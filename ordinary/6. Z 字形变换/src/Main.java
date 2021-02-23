@@ -41,7 +41,7 @@ import java.util.List;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 class Main {
-    //思路：遍历字符串，同时维护一个行号，记录当前到了哪一行；
+    //思路一：遍历字符串，同时维护一个行号，记录当前到了哪一行；
     //注意，循环时，行号要么+1要么-1，且仅当走到第一行或者最后一行时需要变换方向
     public String convert(String s, int numRows) {
 
@@ -63,5 +63,11 @@ class Main {
         StringBuilder ret = new StringBuilder();
         for (StringBuilder row : rows) ret.append(row);
         return ret.toString();
+    }
+    //思路二：需要总结出规律，推算出每行上数所在字符串的下标
+
+    public static void main(String[] args) {
+        Main main = new Main();
+//        System.out.println(main.convertZ("PAYPALISHIRING", 3));
     }
 }
