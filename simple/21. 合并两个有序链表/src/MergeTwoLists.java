@@ -25,7 +25,10 @@
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class MergeTwoLists {
-
+    public ListNode21 mergeTwoLists(ListNode21 l1, ListNode21 l2) {
+        //TODO
+        return new ListNode21();
+    }
 }
 
 
@@ -46,9 +49,3 @@ class ListNode21 {
     }
 }
 
-class Solution {
-    public ListNode21 mergeTwoLists(ListNode21 l1, ListNode21 l2) {
-        //TODO
-        return new ListNode21();
-    }
-}
