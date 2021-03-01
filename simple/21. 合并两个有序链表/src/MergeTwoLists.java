@@ -26,11 +26,14 @@
  */
 public class MergeTwoLists {
     public ListNode21 mergeTwoLists(ListNode21 l1, ListNode21 l2) {
-        //TODO
-        return new ListNode21();
+        //确定结果的头结点
+        ListNode21 head = l1.val >= l2.val ? l2 : l1;
+        ListNode21 currentNode;
+        return head;
     }
-}
 
+
+}
 
 class ListNode21 {
     int val;
@@ -48,4 +51,5 @@ class ListNode21 {
         this.next = next;
     }
 }
+
 
