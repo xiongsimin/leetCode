@@ -45,7 +45,6 @@ public class SumOfThree {
                 if (j > i + 1 && j < nums.length - 1 && nums[j - 1] == nums[j]) {
                     continue;
                 }
-                while ()
                 for (int k = rCur; k > j; k--) {
                     if (k > j + 1 && (nums[k] == nums[k - 1] || nums[j] + nums[k] > -nums[i])) {
                         continue;
