@@ -1,3 +1,4 @@
+import java.util.PriorityQueue;
 import java.util.Random;
 
 /**
@@ -72,9 +73,29 @@ public class FindKthLargest {
         return random.nextInt(2);
     }
 
+
+
+
+    public int findKthLargest1(int[] nums, int k){
+        //最小堆
+        PriorityQueue<Integer> minHeap=new PriorityQueue<Integer>(nums.length);
+        for(int i=0;i<nums.length;i++){
+            if(minHeap.size()<k){
+                minHeap.add(nums[i]);
+            }else {
+                if(nums[i]>minHeap.peek()){
+                    minHeap.poll();
+                    minHeap.add(nums[i]);
+                }
+            }
+        }
+        return minHeap.peek();
+    }
+
     public static void main(String[] args) {
         FindKthLargest findKthLargest = new FindKthLargest();
         System.out.println(findKthLargest.findKthLargest(new int[]{3,2,1,5,6,4},2));
+        System.out.println(findKthLargest.findKthLargest1(new int[]{3,2,1,5,6,4},2));
 //        System.out.println(findKthLargest.test());
     }
 }
