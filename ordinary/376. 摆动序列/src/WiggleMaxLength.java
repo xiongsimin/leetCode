@@ -101,6 +101,32 @@ public class WiggleMaxLength {
         return res;
     }
 
+
+    public int wiggleMaxLength1(int[] nums) {
+        //dp   ups[i]代表到下标i为止以0~i中某个数为结尾的数字为最后一个元素的上升摆动子序列（最后一段是上升序列的摆动序列）的最大长度，dowms[i]同理
+        int[] ups = new int[nums.length];
+        int[] downs = new int[nums.length];
+        ups[0] = 1;
+        downs[0] = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] <= nums[i - 1]) {
+                ups[i] = ups[i - 1];
+            } else {
+                ups[i] = max(ups[i - 1], downs[i - 1] + 1);
+            }
+            if (nums[i] >= nums[i - 1]) {
+                downs[i] = downs[i - 1];
+            } else {
+                downs[i] = max(downs[i - 1], ups[i - 1] + 1);
+            }
+        }
+        return max(ups[nums.length - 1], downs[nums.length - 1]);
+    }
+
+    int max(int a, int b) {
+        return a > b ? a : b;
+    }
+
     public static void main(String[] args) {
         WiggleMaxLength wiggleMaxLength = new WiggleMaxLength();
         System.out.println(wiggleMaxLength.wiggleMaxLength(new int[]{1, 7, 4, 9, 2, 5}));
