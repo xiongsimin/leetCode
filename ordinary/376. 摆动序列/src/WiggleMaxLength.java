@@ -123,9 +123,24 @@ public class WiggleMaxLength {
         return max(ups[nums.length - 1], downs[nums.length - 1]);
     }
 
+    public int wiggleMaxLength3(int[] nums) {
+        //dp优化
+        int up = 1;
+        int down = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] < nums[i - 1]) {
+                down = max(up + 1, down);
+            } else if (nums[i] > nums[i - 1]) {
+                up = max(down + 1, up);
+            }
+        }
+        return max(up, down);
+    }
+
     int max(int a, int b) {
         return a > b ? a : b;
     }
+
 
     public static void main(String[] args) {
         WiggleMaxLength wiggleMaxLength = new WiggleMaxLength();
