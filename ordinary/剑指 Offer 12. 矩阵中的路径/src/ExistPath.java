@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @Author aries
  * @Data 2021-07-27
@@ -75,7 +79,11 @@ public class ExistPath {
     }
 
     public static void main(String[] args) {
-        ExistPath existPath = new ExistPath();
-        System.out.println(existPath.exist(new char[][]{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "ABCCED"));
+        /*ExistPath existPath = new ExistPath();
+        System.out.println(existPath.exist(new char[][]{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "ABCCED"));*/
+        int[][] a = {{1, 2}, {2, 3}};
+        int[][] b = new int[2][2];
+        System.arraycopy(a, 0, b, 0, 2);
+        System.out.println(b);
     }
 }
