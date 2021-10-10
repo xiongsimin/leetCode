@@ -38,6 +38,6 @@ public class TreeNode {
         original.right.right.right.right.right = new TreeNode(2);
         original.right.right.right.right.right.right = new TreeNode(1);
         TreeNode cloned = original;
-        System.out.println(solution.getTargetCopy(original, cloned, new TreeNode(4)).val);
+//        System.out.println(solution.getTargetCopy(original, cloned, new TreeNode(4)).val);
     }
 }
