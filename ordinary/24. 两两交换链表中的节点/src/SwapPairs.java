@@ -32,5 +32,22 @@
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class SwapPairs {
+    public ListNode swapPairs(ListNode head) {
 
+        ListNode pre = new ListNode();
+        pre.next = head;
+        ListNode p1 = pre;
+        ListNode p2 = head;
+        while (p2 != null) {
+            if (p2 == null || p2.next == null) {
+                break;
+            }
+            p1.next = p2.next;
+            p2.next = p2.next.next;
+            p1.next.next = p2;
+            p1 = p2;
+            p2 = p2.next;
+        }
+        return pre.next;
+    }
 }
