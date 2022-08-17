@@ -23,7 +23,6 @@ public class TreeNode {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
         TreeNode original = new TreeNode(8);
         /*original.left = new TreeNode(4);
         original.right = new TreeNode(3);
