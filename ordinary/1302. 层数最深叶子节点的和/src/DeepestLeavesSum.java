@@ -70,6 +70,7 @@ public class DeepestLeavesSum {
                 TreeNode poll = queue.poll();
                 sum += poll.val;
 
+
                 if (poll.left != null) {
                     queue.offer(poll.left);
                 }
