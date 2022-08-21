@@ -39,7 +39,7 @@
  *
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode.cn/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。   测试提交
  */
 public class IsPrefixOfWord {
     public int isPrefixOfWord(String sentence, String searchWord) {
