@@ -32,7 +32,7 @@
  */
 public class ConstructArray {
 
-    public int[] constructArray(int n, int k) {
+    public static int[] constructArray(int n, int k) {
         int[] nNum = new int[n];
         for (int i = 0; i < k + 1; i++) {
 
@@ -50,7 +50,7 @@ public class ConstructArray {
         return nNum;
     }
 
-    public int[] constructArray1(int n, int k) {
+    public static int[] constructArray1(int n, int k) {
         int[] answer = new int[n];
         int idx = 0;
         for (int i = 1; i < n - k; ++i) {
@@ -66,5 +66,12 @@ public class ConstructArray {
             }
         }
         return answer;
+    }
+
+    public static void main(String[] args) {
+        int[] aa = ConstructArray.constructArray(20,7);
+        for(int i=0;i< aa.length;i++){
+            System.out.print(aa[i]+" ");
+        }
     }
 }
