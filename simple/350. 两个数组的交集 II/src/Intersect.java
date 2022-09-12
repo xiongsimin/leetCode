@@ -40,6 +40,7 @@ import java.util.Set;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Intersect {
+    // 二分？+hash
     public int[] intersect(int[] nums1, int[] nums2) {
         List<Integer> resList = new ArrayList<>();
         Set<Integer> used = new HashSet<>();
@@ -95,5 +96,32 @@ public class Intersect {
             res[i] = resList.get(i);
         }
         return res;
+    }
+
+    // 双指针
+    public int[] intersect1(int[] nums1, int[] nums2) {
+        List<Integer> res = new ArrayList<>();
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int p = 0, q = 0;
+        while (p < nums1.length && q < nums2.length) {
+            if (nums1[p] == nums2[q]) {
+                res.add(nums1[p]);
+                p++;
+                q++;
+            } else if (nums1[p] < nums2[q]) {
+                p++;
+            } else {
+                q++;
+            }
+        }
+        if (res.size() == 0) {
+            return new int[0];
+        }
+        int[] ans = new int[res.size()];
+        for (int i = 0; i < res.size(); i++) {
+            ans[i] = res.get(i);
+        }
+        return ans;
     }
 }
