@@ -31,7 +31,7 @@ public class GetKthMagicNumber {
             long cur = heap.poll();
             ans = (int) cur;
             for (int f : fac) {
-                long fx = f * ans;
+                long fx = cur * f;
                 if (set.add(fx)) {
                     heap.offer(fx);
                 }
