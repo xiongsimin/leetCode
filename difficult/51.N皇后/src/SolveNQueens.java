@@ -37,6 +37,8 @@ import java.util.List;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class SolveNQueens {
+    // todo 基于集合的回溯法
+    // todo 基于位运算的回溯法
     List<List<String>> res=new ArrayList<>();
     public List<List<String>> solveNQueens(int n) {
         char[][] N = new char[n][n];
